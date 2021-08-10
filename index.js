@@ -78,7 +78,8 @@ exports.handler = async (event, context, callback) => {
       }).promise();
 
       response.statusCode = 301;
-      response.headers = { location: `${URL}/${key}` };
+      // header location for redirect. Remove trailing slash on URL and any leading / if exists on key
+      response.headers = { location: `${URL.replace(/\/$/g, "")}/${key.replace(/^\/+/g, "")}` };
       response.body = "";
       foundOrigFile = true;
       break;
