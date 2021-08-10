@@ -26,3 +26,8 @@ Note that `ReplaceKeyPrefixWith` value will be the path after your hostname in t
 ]
 ```
 
+Additional tips for Lambda function:
+1. For Linux distro of the Lambda function, to zip the repo contents without adding the annoying subfolder with same name as the repo folder (which will cause the Lambda func to not work on upload), run the following from the root of the repo to have the zip file created at the same level as the repo (not as a child). Replace `webp-func` withn name of desired zip file.
+```
+zip -r ../webp-func.zip .
+```
